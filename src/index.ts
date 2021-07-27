@@ -1,3 +1,4 @@
+import { ReportEmitErrorSummary } from "typescript";
 
 
 
@@ -5,28 +6,31 @@
 /*
     ===== Código de TypeScript =====
 */
-interface SuperHeroe{
-    nombre:string;
-    edad: number;
-    direccion: Direccion;
-    mostrardireccion():void;
+interface Reproductor{
+    volumen: number,
+    segundo: number,
+    cancion: String,
+    detalles: Detalles,
 }
-interface Direccion{
-    calle: string,
-    pais: string,
-    ciudad: string
-    
+interface Detalles{
+    autor:string,
+    año:number,
+
 }
-const superHeroe={
-    nombre: "SpiderMan",
-    edad: 30,
-    direccion:{
-        calle: "Main St",
-        pais: "USA",
-        ciudad: "NY"
-    },
-    mostrarDireccion(){
-        return this.nombre+ ", " + this.direccion.ciudad+ ", "+this.direccion.pais;
-    }     
+const reproductor: Reproductor={
+    volumen: 90,
+    segundo:36,
+    cancion: "Ejemplo",
+    detalles: {
+        autor: "Nombre",
+        año: 2021
+    }
 }
-console.log(superHeroe.mostrarDireccion());
+const{volumen, segundo, cancion, detalles}=reproductor;
+const{autor:autorDetalle}=detalles;
+
+console.log("El  volumen actual es de: " + volumen);
+console.log("El  segundo actual es de: ", segundo);
+console.log("La cancion actual es de: ", cancion);
+console.log("El  autor actual es : ", autorDetalle);
+
